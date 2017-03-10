@@ -17,12 +17,12 @@ In this case, batch_idx = 0
 
 '''
 
-def batch_generator(train_or_valid, hdf5_name, batch_size=32):
+def batch_generator(train_or_valid, hdf5_name, batch_size=32, train_size = 82611, valid_size = 40438):
 	
 	if train_or_valid == 1:
-		number_of_batches = int(round(82611/batch_size))
+		number_of_batches = int(round(train_size/batch_size))
 	else:
-		number_of_batches = int(round(40438/batch_size))	
+		number_of_batches = int(round(valid_size/batch_size))	
 	
 	while True:
 		open_file = h5py.File(hdf5_name, 'r')
