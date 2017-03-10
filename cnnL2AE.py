@@ -9,8 +9,8 @@ from keras.callbacks import EarlyStopping, ModelCheckpoint
 import os.path
 from data_flow import batch_generator
 
-batch_size = 100
-nb_epoch = 50
+batch_size = 64
+nb_epoch = 500
 
 samples_per_epoch = 82611
 nb_val_samples = 40438
@@ -51,6 +51,7 @@ runMax = 300
 epoch=0
 run=0
 CPName = None
+found = False
 
 for i in range(runMax,-1,-1):
 	for j in range(nb_epoch,-1,-1):	
@@ -64,7 +65,10 @@ for i in range(runMax,-1,-1):
 			CPName='CP/cnnL2AE/cnnL2AE-'+runStr+'-'+epochStr+'.h5'
 			epoch=j+1
 			run=i+1
+			found = True
 			break
+	if found:
+		break
 
 if CPName is None:
 
