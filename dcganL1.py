@@ -43,9 +43,9 @@ for i in range(runMax,-1,-1):
 		epochStr = str(j)
 		runStr = str(i)
 
-		if (os.path.exists('CP/lsgan/gen/gen-'+runStr+'-'+epochStr+'.h5') and os.path.exists('CP/lsgan/disc/disc-'+runStr+'-'+epochStr+'.h5')):
-			CPNameG = 'CP/lsgan/gen/gen-'+runStr+'-'+epochStr+'.h5'
-			CPNameD = 'CP/lsgan/disc/disc-'+runStr+'-'+epochStr+'.h5'
+		if (os.path.exists('CP/dcgan/gen/gen-'+runStr+'-'+epochStr+'.h5') and os.path.exists('CP/dcgan/disc/disc-'+runStr+'-'+epochStr+'.h5')):
+			CPNameG = 'CP/dcgan/gen/gen-'+runStr+'-'+epochStr+'.h5'
+			CPNameD = 'CP/dcgan/disc/disc-'+runStr+'-'+epochStr+'.h5'
 			epoch=j+1
 			run=i+1
 			found=True
@@ -248,20 +248,20 @@ while (i<nb_epoch):
 			losses['l1_loss'].append(l1_loss)
 
 		if (b == np.floor(number_of_batches/2)):
-			generator.save('CP/lsgan/gen/gen-'+str(run)+'-'+str(i)+'-'+'half'+'.h5')
-			pickle.dump(losses, open('CP/lsgan/losses.p', 'wb'))
+			generator.save('CP/dcgan/gen/gen-'+str(run)+'-'+str(i)+'-'+'half'+'.h5')
+			pickle.dump(losses, open('CP/dcgan/losses.p', 'wb'))
 	
-	pickle.dump(losses, open('CP/lsgan/losses.p', 'wb'))
-	generator.save('CP/lsgan/gen/gen-'+str(run)+'-'+str(i)+'.h5')
-	discriminator.save('CP/lsgan/disc/disc-'+str(run)+'-'+str(i)+'.h5')
-	GAN.save('CP/lsgan/GAN/GAN-'+str(run)+'-'+str(i)+'.h5')
+	pickle.dump(losses, open('CP/dcgan/losses.p', 'wb'))
+	generator.save('CP/dcgan/gen/gen-'+str(run)+'-'+str(i)+'.h5')
+	discriminator.save('CP/dcgan/disc/disc-'+str(run)+'-'+str(i)+'.h5')
+	GAN.save('CP/dcgan/GAN/GAN-'+str(run)+'-'+str(i)+'.h5')
 
 	i+=1
 
 print('Training done')
 
-generator.save('lsgan_gen.h5')
-discriminator.save('lsgan_disc.h5')
-GAN.save('lsgan_GAN.h5')
+generator.save('dcgan_gen.h5')
+discriminator.save('dcgan_disc.h5')
+GAN.save('dcgan_GAN.h5')
 
 print('Models Saved')
