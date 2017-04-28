@@ -1,21 +1,23 @@
 # ift6266 - Contextual Image inpainting
 
 # Dependencies
--Keras;
+-Keras
 
--h5py;
+-h5py
 
--Numpy;
+-pickle
+
+-Numpy
 
 # Training a model
 
-Convolutional Autoencoder:
+-Convolutional Autoencoder:
 
   mkdir -p CP/cnnL2AE
   
   python cnnL2AE.py
   
-Convolutional Autoencoder with L1+Adversarial losses:
+-Convolutional Autoencoder with L1+Adversarial losses:
 
   mkdir -p CP/autoencADVL1/AE
   
@@ -23,7 +25,7 @@ Convolutional Autoencoder with L1+Adversarial losses:
   
   python autoencoderADVL1.py
 
-DCGAN with L1 loss:
+-DCGAN with L1 loss:
 
   mkdir -p CP/dcgan/gen
   
@@ -37,6 +39,6 @@ DCGAN with L1 loss:
 
 -dcganL1.py requires a keras pre-trained encoder 'encoder.h5' with output shape = (None, 4, 4, 128)
 
-Generate samples:
+# Generate samples
 
 misc.py contain functions to generate samples from keras models saved as .h5. The main contain some examples in the comments.
