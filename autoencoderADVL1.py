@@ -63,7 +63,7 @@ if found:
 	autoencoder = load_model(CPNameAE)
 	discriminator = load_model(CPNameD)
 	
-	losses = pickle.load(open('CP/lsganAEADV/losses.p', 'rb'))
+	losses = pickle.load(open('CP/autoencADVL1/losses.p', 'rb'))
 
 else:
 
@@ -281,8 +281,8 @@ while (i<nb_epoch):
 
 print('Training done')
 
-autoencoder.save('lsganAEADV.h5')
-discriminator.save('lsganAEADV_disc.h5')
-GAN.save('lsganAEADV_disc.h5')
+autoencoder.save('autoencADVL1.h5')
+discriminator.save('autoencADVL1_disc.h5')
+GAN.save('autoencADVL1_GAN.h5')
 
 print('Models Saved')
