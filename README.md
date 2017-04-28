@@ -2,7 +2,9 @@
 
 # Dependencies
 -Keras;
+
 -h5py;
+
 -Numpy;
 
 # Training a model
