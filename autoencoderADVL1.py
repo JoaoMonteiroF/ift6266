@@ -48,9 +48,9 @@ for i in range(runMax,-1,-1):
 		epochStr = str(j)
 		runStr = str(i)
 
-		if (os.path.exists('CP/lsganAEADV/AE/AE-'+runStr+'-'+epochStr+'.h5') and os.path.exists('CP/lsganAEADV/disc/disc-'+runStr+'-'+epochStr+'.h5')):
-			CPNameAE = 'CP/lsganAEADV/AE/AE-'+runStr+'-'+epochStr+'.h5'
-			CPNameD = 'CP/lsganAEADV/disc/disc-'+runStr+'-'+epochStr+'.h5'
+		if (os.path.exists('CP/autoencADVL1/AE/AE-'+runStr+'-'+epochStr+'.h5') and os.path.exists('CP/autoencADVL1/disc/disc-'+runStr+'-'+epochStr+'.h5')):
+			CPNameAE = 'CP/autoencADVL1/AE/AE-'+runStr+'-'+epochStr+'.h5'
+			CPNameD = 'CP/autoencADVL1/disc/disc-'+runStr+'-'+epochStr+'.h5'
 			epoch=j+1
 			run=i+1
 			found=True
@@ -273,9 +273,9 @@ while (i<nb_epoch):
 			losses['ae_L1'].append(g_loss[1])
 			losses['disc'].append(d_loss)
 
-	pickle.dump(losses, open('CP/lsganAEADV/losses.p', 'wb'))
-	autoencoder.save('CP/lsganAEADV/AE/AE-'+str(run)+'-'+str(i)+'.h5')
-	discriminator.save('CP/lsganAEADV/disc/disc-'+str(run)+'-'+str(i)+'.h5')
+	pickle.dump(losses, open('CP/autoencADVL1/losses.p', 'wb'))
+	autoencoder.save('CP/autoencADVL1/AE/AE-'+str(run)+'-'+str(i)+'.h5')
+	discriminator.save('CP/autoencADVL1/disc/disc-'+str(run)+'-'+str(i)+'.h5')
 
 	i+=1
 
